@@ -1,5 +1,4 @@
 # canceller
-=========
 
 >Turn any ordinary pair of headphones into noise-cancelling headphones, on us.
 
