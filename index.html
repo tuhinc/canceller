@@ -1,0 +1,49 @@
+
+<!doctype html>
+<head>
+<title>Script Processor Node | Web Audio API</title>
+
+<link rel="stylesheet" href="./style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+
+<div id="container">
+
+  <div id="wrapper">
+    <div id="content">
+      <h3>Before</h3>
+       <p><canvas class="beforeAudio" style="background: white;"></canvas></p>
+      <h3>After</h3>
+        <p><canvas class="afterAudio" style="background: white;"></canvas></p>
+
+      
+<div class="post">
+  
+  	<div>
+		Frequency: <input id="frequency" type="range" min="0" max="1000" step="1" value="440" onchange="sample2.changeFrequency(this.value);">
+		
+		Detune: <input id="detune" type="range" min="-100" max="100" step="5" value="0" onchange="sample2.changeDetune(this.value);">
+	</div>
+	<p><button onclick="sample2.toggle()">Play/pause Sin Wave Tester</button></p>
+    <p><button onclick="sample1.toggle()">Play/Pause Song (Not Hooked In)</button></p>
+
+<script src="./shared.js"></script>
+<script src="./script-processor-sample.js"></script>
+<script src="./microphone-sample.js"></script>
+
+<script>
+var sample1 = new ScriptSample();
+var sample2 = new MicrophoneSample();
+</script>
+
+</div>
+
+
+    </div>
+
+  </div>
+
+
+  </body>
+</html>
