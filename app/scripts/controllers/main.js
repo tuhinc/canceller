@@ -36,12 +36,19 @@ app.controller('MainCtrl', function ($scope) {
   	};
   	$scope.showRes = function(albums){
   		$("#albumContainer").empty();
-  		_.each(albums, function(album){
+  		_.throttle(_.each(albums, function(album){
   			$scope.albumKey = album.key;
-  			$("#albumContainer").append('<button><img alb src="' + album.icon + '" ng-click="play('+ album.key +')"/></button>');
-  		});
-  	}
+  			$("#albumContainer").append('<button><img class="alb" id="'+ album.key +'" ng-click="play('+ album.key +')" src="' + album.icon + '"/></button>');
+      }), 5000);
+      $( ".alb" ).on("click", function(e) {
+        $scope.play(e.currentTarget.id)
+      });
+    }
   	$scope.play = function(albumKey){
+      console.log('play')
+      if (albumKey){
+        $scope.albumKey = albumKey;
+      }
   		R.player.play({ source: $scope.albumKey })
   	}
   	$scope.pause = function(){
