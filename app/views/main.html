@@ -2,7 +2,6 @@
 <!doctype html>
 <head>
 <title>Script Processor Node | Web Audio API</title>
-<link rel="stylesheet" href="./style.css" type="text/css" media="screen" />
 </head>
 <body>
 	<div id="container">
@@ -18,8 +17,16 @@
 					Detune: <input id="detune" type="range" min="-100" max="100" step="5" value="0" onchange="sample2.changeDetune(this.value);">
 				</div>
 			<p><button onclick="sample2.toggle()">Play/pause Sin Wave Tester</button></p>
-	    	<p><button onclick="sample1.toggle()">Play/Pause Song (Not Hooked In)</button></p>
-	    	<button class="btn btn-large landingJoinButton" ng-click="getPlaybackToken()">get playback token</button>
+	    	<button ng-click="auth()">login</button>
+	    	<form class="search">
+	    		<input type="text" ng-model="searchVal" ng-keyup="search()"/>
+	    		<button ng-click="search()">search</button>
+	    		<button ng-click="play()">play</button>
+	    		<button ng-click="pause()">toggle play/pause</button>
+	    		<button ng-click="previous()">previous</button>
+	    		<button ng-click="next()">next</button>
+	    	</form>
+	    	<div id="albumContainer"></div>
 			<script>
 			var sample1 = new ScriptSample();
 			var sample2 = new MicrophoneSample();
@@ -28,9 +35,6 @@
 	    </div>
 	  </div>
 	  <div>
-    </div>
-    <div id="myContent">
-      <a href="/auth/rdio">Login</a>
     </div>
   </body>
 </html>
