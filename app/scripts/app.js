@@ -12,8 +12,7 @@ angular.module('cancellerApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .otherwise({
+    $routeProvider.otherwise({
         redirectTo: '/'
       });
-
   });
