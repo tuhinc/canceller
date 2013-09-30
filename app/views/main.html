@@ -1,31 +1,26 @@
-
 <!doctype html>
 <head>
-<title>Script Processor Node | Web Audio API</title>
 </head>
 <body>
 	<div id="container">
 	  <div id="wrapper">
 	    <div id="content">
-	      <h3>Before</h3>
-	        <p><canvas class="beforeAudio" style="background: white;"></canvas></p>
-	      <h3>After</h3>
-	        <p><canvas class="afterAudio" style="background: white;"></canvas></p>
+	      <h3 class="words">Before</h3>
+	        <p><canvas class="beforeAudio" style="background: white;  height: 380px"></canvas></p>
+	      <h3 class="words">After</h3>
+	        <p><canvas class="afterAudio" style="background: white; height: 380px"></canvas></p>
 			<div class="post">
-	  			<div>
+	  			<div style="margin-top: 20px">
 					Frequency: <input id="frequency" type="range" min="0" max="1000" step="1" value="440" onchange="sample2.changeFrequency(this.value);">
 					Detune: <input id="detune" type="range" min="-100" max="100" step="5" value="0" onchange="sample2.changeDetune(this.value);">
 				</div>
-			<p><button onclick="sample2.toggle()">Play/pause Sin Wave Tester</button></p>
-	    	<button ng-click="auth()">login</button>
-	    	<form class="search">
-	    		<input type="text" ng-model="searchVal" ng-keyup="search()"/>
-	    		<button ng-click="search()">search</button>
-	    		<button ng-click="play()">play</button>
-	    		<button ng-click="pause()">toggle play/pause</button>
-	    		<button ng-click="previous()">previous</button>
-	    		<button ng-click="next()">next</button>
-	    	</form>
+			<p><button style="margin-top: 20px" onclick="sample2.toggle()">Play/pause Sin Wave Tester</button></p>
+				<div class="navigation">
+	    		<img ng-click="previous()" src="../images/previous.png"/>
+	    		<img ng-click="pause(); hide();" ng-show="playing" src="../images/play.png"/>
+	    		<img ng-click="pause(); hide();" ng-show="!playing" src="../images/pause.png"/>
+	    		<img ng-click="next()" src="../images/next.png"/>
+				</div>
 	    	<div id="albumContainer"></div>
 			<script>
 			var sample1 = new ScriptSample();

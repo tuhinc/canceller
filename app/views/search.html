@@ -1,0 +1,26 @@
+<!doctype html>
+<head>
+</head>
+<body>
+  <div id="container">
+    <div id="wrapper">
+      <div id="content">
+      <div class="post">
+        <form class="search">
+          <input class="searchBox" type="text" ng-model="searchVal" ng-keyup="search()"/>
+          <button class="searchButton" ng-click="search()">search</button>
+        </form>
+        <div class="navigation">
+          <img ng-click="previous()" src="../images/previous.png"/>
+          <img ng-click="pause(); hide();" ng-show="!playing" src="../images/play.png"/>
+          <img ng-click="pause(); hide();" ng-show="playing" src="../images/pause.png"/>
+          <img ng-click="next()" src="../images/next.png"/>
+        </div>
+        <div id="albumContainer"></div>
+      </div>
+      </div>
+    </div>
+    <div>
+    </div>
+  </body>
+</html>

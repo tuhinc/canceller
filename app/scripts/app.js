@@ -9,6 +9,11 @@ angular.module('cancellerApp', [])
       })
     $routeProvider
       .when('/play', {
+        templateUrl: 'views/search.html',
+        controller: 'MainCtrl'
+      })
+    $routeProvider
+      .when('/view', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })

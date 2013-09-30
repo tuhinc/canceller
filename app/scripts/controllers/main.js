@@ -6,7 +6,6 @@ app.controller('LoginCtrl', function ($scope, $location, $window) {
     var locationPlay = function() {
       $location.path('/play');
     };
-    console.log($location);
   	$scope.auth = function() {
   		R.authenticate(function(){
         console.log('authenticate')
@@ -14,7 +13,11 @@ app.controller('LoginCtrl', function ($scope, $location, $window) {
   	};
 });
 
-app.controller('MainCtrl', function ($scope) {
+app.controller('MainCtrl', function ($scope, $location) {
+    $scope.playing = false;
+    $scope.hide = function(){
+      console.log('hide', $scope.playing)
+    };
   	$scope.searchVal;
   	$scope.$watch('searchVal', function(){
   		$scope.search();
@@ -41,23 +44,25 @@ app.controller('MainCtrl', function ($scope) {
   			$("#albumContainer").append('<button><img class="alb" id="'+ album.key +'" ng-click="play('+ album.key +')" src="' + album.icon + '"/></button>');
       }), 5000);
       $( ".alb" ).on("click", function(e) {
-        $scope.play(e.currentTarget.id)
+        $scope.play(e.currentTarget.id);
       });
-    }
-  	$scope.play = function(albumKey){
-      console.log('play')
+    };
+    $scope.play = function(albumKey){
+      $scope.playing = !$scope.playing;
       if (albumKey){
         $scope.albumKey = albumKey;
       }
-  		R.player.play({ source: $scope.albumKey })
-  	}
+  		// R.player.play({ source: $scope.albumKey });
+      $location.path('/view');
+  	};
   	$scope.pause = function(){
+      $scope.playing = !$scope.playing;
   		R.player.togglePause();
-  	}
+  	};
    	$scope.next = function(){
   		R.player.next();
-  	}
+  	};
    	$scope.previous = function(){
   		R.player.previous();
-  	}
+  	};
   });
