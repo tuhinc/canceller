@@ -4,7 +4,7 @@
 
 ## Stack
 
-Speaker was built on Angular.js and Node.js, and uses the HTML5 WebAudio API to read your micrphone's input data and emit a destructive noise-cancelling sound wave.
+Canceller was built on Angular.js and Node.js, and uses the HTML5 WebAudio API to read your micrphone's input data and emit a destructive noise-cancelling sound wave.
 
 ## Installation
 
